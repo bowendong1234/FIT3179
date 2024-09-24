@@ -1,0 +1,128 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 450,
+    "title": "Australian Bushfires in 2023",
+    "projection": {
+        "type": "mercator"
+    },
+    "layer": [
+        {
+            "data": {
+                "url": "australia_map.topojson.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "australia_map"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "lightgray",
+                "stroke": "white"
+            }
+        },
+        {
+            "data": {
+                "url": "modis_2023_Australia.csv"
+            },
+            "mark": {
+                "type": "circle",
+                "size": 1,
+                "tooltip": {
+                    "content": "data"
+                }
+            },
+            "encoding": {
+                "longitude": {
+                    "field": "longitude",
+                    "type": "quantitative"
+                },
+                "latitude": {
+                    "field": "latitude",
+                    "type": "quantitative"
+                },
+                "color": {
+                    "field": "frp",
+                    "type": "quantitative",
+                    "scale": {
+                        "scheme": "reds"
+                    }
+                }
+            }
+        }
+        ]
+    }
+
+    {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "width": 800,
+        "height": 450,
+        "title": "Australian Bushfires in 2023",
+        "projection": {
+            "type": "mercator"
+        },
+        "layer": [
+            {
+                "data": {
+                    "url": "australia_map.topojson.json",
+                    "format": {
+                        "type": "topojson",
+                        "feature": "australia_map"
+                    }
+                },
+                "mark": {
+                    "type": "geoshape",
+                    "fill": "lightgray",
+                    "stroke": "white"
+                }
+            },
+            {
+                "data": {
+                    "url": "modis_2023_Australia.csv"
+                },
+                "mark": {
+                    "type": "circle",
+                    "size": 3,
+                    "tooltip": {
+                        "content": "data"
+                    }
+                },
+                "encoding": {
+                    "x": {
+                        "field": "longitude",
+                        "type": "quantitative",
+                        "bin": {
+                            "step": 0.1
+                        },
+                        "scale": {
+                            "domain": [
+                                100,
+                                166
+                            ]
+                        }
+                    },
+                    "y": {
+                        "field": "latitude",
+                        "type": "quantitative",
+                        "bin": {
+                            "step": 0.1
+                        },
+                        "scale": {
+                            "domain": [
+                                -45,
+                                -11
+                            ]
+                        }
+                    },
+                    "color": {
+                        "field": "frp",
+                        "type": "quantitative",
+                        "aggregate": "sum",
+                        "scale": {
+                            "scheme": "reds"
+                        }
+                    }
+                }
+            }
+        ]
+    }
