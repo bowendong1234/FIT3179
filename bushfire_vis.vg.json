@@ -9,7 +9,7 @@
                 "min": 0,
                 "max": 10000,
                 "step": 50,
-                "name": "Minimum FRP: "
+                "name": "Only consider wildfires with FRP greater than: "
             }
         }
     ],
