@@ -1,5 +1,18 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "params": [
+        {
+            "name": "FRP_above",
+            "value": 0,
+            "bind": {
+                "input": "range",
+                "min": 0,
+                "max": 10000,
+                "step": 50,
+                "name": "Minimum FRP: "
+            }
+        }
+    ],
     "width": 800,
     "height": 450,
     "title": "Australian Bushfires in 2023",
@@ -41,7 +54,7 @@
             },
             "mark": {
                 "type": "square",
-                "size": 20,
+                "size": 26,
                 "tooltip": {
                     "content": "data"
                 }
@@ -81,26 +94,55 @@
                     "aggregate": "sum",
                     "scale": {
                         "type": "sqrt",
-                        "range": ["orange", "red", "darkred"] 
+                        "range": [
+                            "orange",
+                            "red",
+                            "darkred"
+                        ]
                     },
                     "legend": {
-                      "title": "Fire Radiative Power (FRP) Total",
-                      "orient": "right"
+                        "title": "Total Fire Radiative Power (MWs)",
+                        "orient": "right"
                     }
                 },
                 "tooltip": [
-                  {"field": "bin_step_0_5_latitude", "type": "quantitative", "title": "Latitude Start"},
-                  {"field": "bin_step_0_5_latitude_end", "type": "quantitative", "title": "Latitude End"},
-                  {"field": "bin_step_0_5_longitude", "type": "quantitative", "title": "Longitude Start"},
-                  {"field": "bin_step_0_5_longitude_end", "type": "quantitative", "title": "Longitude End"},
-                  {"field": "sum_frp", "type": "quantitative", "title": "Fire Radiative Power (total)"}
+                    {
+                        "field": "bin_step_0_5_latitude",
+                        "type": "quantitative",
+                        "title": "Latitude Start"
+                    },
+                    {
+                        "field": "bin_step_0_5_latitude_end",
+                        "type": "quantitative",
+                        "title": "Latitude End"
+                    },
+                    {
+                        "field": "bin_step_0_5_longitude",
+                        "type": "quantitative",
+                        "title": "Longitude Start"
+                    },
+                    {
+                        "field": "bin_step_0_5_longitude_end",
+                        "type": "quantitative",
+                        "title": "Longitude End"
+                    },
+                    {
+                        "field": "sum_frp",
+                        "type": "quantitative",
+                        "title": "Total Fire Radiative Power (MWs)"
+                    }
                 ]
-            }
+            },
+            "transform": [
+                {
+                    "filter": "datum.frp > FRP_above"
+                }
+            ]
         }
     ],
     "config": {
-      "view": {
-        "stroke": null
-      }
+        "view": {
+            "stroke": null
+        }
     }
 }

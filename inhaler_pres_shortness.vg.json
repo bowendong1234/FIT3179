@@ -1,0 +1,97 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "vconcat": [
+        {
+            "width": 400,
+            "height": 250,
+            "title": "Average sales per state of inhalers for shortness of breath",
+            "data": {
+                "url": "inhaler_pres_shortness_of_breath.csv",
+                "format": {
+                    "type": "csv"
+                }
+            },
+            "transform": [
+                {
+                    "fold": [
+                      "VIC", "NSW", "QLD", "ACT", "NT", "SA", "WA", "TS"
+                    ],
+                    "as": ["State", "Value"]
+                  }
+            ],
+            "mark": {
+                "type": "line"
+            },
+            "encoding": {
+                "x": {
+                    "field": "Week",
+                    "type": "ordinal",
+                    "title": "Weeks (September 2019 - February 2020)",
+                    "sort": [
+                        "1/9/2019",
+                        "8/9/2019",
+                        "15/9/2019",
+                        "22/9/2019",
+                        "29/9/2019",
+                        "6/10/2019",
+                        "13/10/2019",
+                        "20/10/2019",
+                        "27/10/2019",
+                        "3/11/2019",
+                        "10/11/2019",
+                        "17/11/2019",
+                        "24/11/2019",
+                        "1/12/2019",
+                        "8/12/2019",
+                        "15/12/2019",
+                        "22/12/2019",
+                        "29/12/2019",
+                        "5/1/2020",
+                        "12/1/2020",
+                        "19/1/2020",
+                        "26/1/2020",
+                        "2/2/2020",
+                        "9/2/2020",
+                        "16/2/2020",
+                        "23/2/2020"
+                    ]
+                },
+                "y": {
+                    "field": "Value",
+                    "type": "quantitative",
+                    "title": "Rate change in no. of sales (%)",
+                    "scale": {
+                        "zero": true
+                    }
+                },
+                "color": {
+                    "field": "State",
+                    "type": "nominal",
+                    "title": "State"
+                },
+                "tooltip": [
+                    {
+                        "field": "State",
+                        "type": "nominal",
+                        "title": "State"
+                    },
+                    {
+                        "field": "Value",
+                        "type": "quantitative",
+                        "title": "% change in sales"
+                    },
+                    {
+                        "field": "Week",
+                        "type": "nominal",
+                        "title": "Week starting"
+                    }
+                ]
+            }
+        }
+    ],
+    "config": {
+        "view": {
+            "stroke": null
+        }
+    }
+}
