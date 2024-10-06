@@ -6,7 +6,7 @@
             "height": 250,
             "title": "Average PBS scripts per state for inhalants and adrenergics for obstructive airway diseases",
             "data": {
-                "url": "Inhalants_and_adrenergics.csv",
+                "url": "inhalants_and_adrenergics.csv",
                 "format": {
                     "type": "csv"
                 }
