@@ -9,13 +9,16 @@
                 "min": 0,
                 "max": 10000,
                 "step": 50,
-                "name": "Only consider wildfires with FRP greater than: "
+                "name": "Only consider wildfires with FRP (MWs) greater than: "
             }
         }
     ],
     "width": 800,
     "height": 450,
-    "title": "Australian Bushfires in 2023",
+    "title": {
+        "text": "Australian Bushfires in 2023",
+        "fontSize": 18
+    },
     "projection": {
         "type": "equirectangular"
     },
@@ -102,7 +105,7 @@
                     },
                     "legend": {
                         "title": "Total Fire Radiative Power (MWs)",
-                        "orient": "right"
+                        "orient": "top-left"
                     }
                 },
                 "tooltip": [

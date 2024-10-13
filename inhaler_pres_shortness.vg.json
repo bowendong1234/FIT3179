@@ -1,24 +1,52 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "vconcat": [
+    "width": 600,
+    "height": 400,
+    "title": {
+        "text": "Sales of Inhalers for Shortness of Breath during Black Summer",
+        "fontSize": 18
+    },
+    "data": {
+        "url": "inhaler_pres_shortness_of_breath.csv",
+        "format": {
+            "type": "csv"
+        }
+    },
+    "transform": [
         {
-            "width": 400,
-            "height": 250,
-            "title": "Average sales per state of inhalers for shortness of breath",
-            "data": {
-                "url": "inhaler_pres_shortness_of_breath.csv",
-                "format": {
-                    "type": "csv"
-                }
-            },
-            "transform": [
-                {
-                    "fold": [
-                      "VIC", "NSW", "QLD", "ACT", "NT", "SA", "WA", "TS"
-                    ],
-                    "as": ["State", "Value"]
-                  }
+            "fold": [
+                "Victoria",
+                "New South Wales",
+                "Queensland",
+                "Australian Capital Territory",
+                "Northern Territory",
+                "South Australia",
+                "Western Australia",
+                "Tasmania"
             ],
+            "as": [
+                "State",
+                "Value"
+            ]
+        }
+    ],
+    "layer": [
+        {
+            "mark": {
+                "type": "rect",
+                "color": "#f0e68c",
+                "opacity": 0.01
+            },
+            "encoding": {
+                "x": {
+                    "datum": "1/12/2019"
+                },
+                "x2": {
+                    "datum": "26/1/2020"
+                }
+            }
+        },
+        {
             "mark": {
                 "type": "line"
             },
@@ -54,7 +82,10 @@
                         "9/2/2020",
                         "16/2/2020",
                         "23/2/2020"
-                    ]
+                    ],
+                    "axis": {
+                        "labelAngle": -40
+                    }
                 },
                 "y": {
                     "field": "Value",
@@ -87,9 +118,52 @@
                     }
                 ]
             }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "right",
+            "font": "Calibri",
+            "fontWeight": 100,
+            "fontSize": 12,
+            "dx": -70,
+            "dy": -100
+          },
+          "encoding": {
+            "x": {
+              "datum": "12/1/2020",
+              "type": "ordinal"
+            },
+            "y": {
+              "datum": 27.3,
+              "type": "quantitative"
+            },
+            "text": {
+              "value": "Peak in sales increase"
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "rule",
+            "strokeDash": [1,3],
+            "strokeWidth": 1
+        },
+          "encoding": {
+            "x": {
+              "datum": "5/1/2020",
+              "type": "ordinal"
+            },
+            "y": {
+              "value": 0
+            }
+          }
         }
     ],
     "config": {
+        "legend": {
+            "disable": true
+        },
         "view": {
             "stroke": null
         }

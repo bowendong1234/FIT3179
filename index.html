@@ -1,20 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-<script src="bushfire_vis.js"></script>
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+    <script src="bushfire_vis.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <h1>Bushfires in Australia</h1>
-<div id="bushfire_chart">  
-</div>
-<div id="inhalants_and_adrenergics_chart" class="universal-margin"></div>
-<div id="inhaler_sales" class="universal-margin"></div>
+    <div class="main-container">
+        <div class="title-text-container">
+            <div class="title">B U S H F I R E S</div>
+            <div class="title">I N</div>
+            <div class="title">A U S T R A L I A</div>
+        </div>
+        <div class="map-chart-block">
+            <div id="bushfire_chart" class="slider-font"> </div>
+            <div class="text-block">
+                <div>The chart to the left displays the total Fire Radiative Power (megawatts) emmitted from bushfires
+                    over 2023 in Australia. These values are binned to a space of 0.5 degrees longitude to 0.5 degrees
+                    lattitude</div>
+                <div>In 2023, Australian bushfires were particularly prevalent in the Northern Territory and parts of
+                    Western Australia. 2023 saw significant fire activity driven by the build-up of dry fuel after a wet
+                    season. In the Northern Territory alone, around 43 million hectares were affected with large fires
+                    occurring in remote savannah and desert regions. These fires were primarily fueled by lightning
+                    strikes and eggravated by the vast, dry grasslands created after heavy rains earlier in the year.
+                    The Great Sandy Desert and Barkly regions were the most highly affected with fires burning through
+                    large tracts of unmanaged land.</div>
+                <div>In New South Wales, numerous fires also broke out in October 2023, with the Mid North Coast and
+                    areas around Kempsey experiencing significant fire outbreaks. Fires such as the Willi Willi Road
+                    blaze in the Willi Willi National Park grew rapidly, burning over 30,000 hectares. Extreme
+                    conditions, including high winds and soaring temperatures, contributed to the rapid spread of fires,
+                    which forced evacuations and led to property losses across various parts of the state, including
+                    Penrith, Nymboida, and Tenterfield.</div>
+            </div>
+        </div>
+        <div class="black-summer-content">
+
+            <div class="black-summer-left">
+                <div class="black-summer-text">
+                    <div>The 2019-2020 bushfires in Australia, known as the Black Summer bushfires were some of the most
+                        devastating bushfires in Australia's recent history. Officially beginning in June 2019 and
+                        ending in around May 2020, these bushfires claimed the lives of over 33 individuals and impacted
+                        multiple states but particularly New South Wales, Victoria, and Queensland. The fires were
+                        driven by extreme weather conditions, including prolonged drought, record-high temperatures, and
+                        strong winds, which contributed to the intensity and spread of the blazes. When Black Summer
+                        ended, over 24 million hectares of land was burned.</div>
+                    <div>The line charts to the right display some of the secondary effects of the Black Summer
+                        bushfires. The line chart on top visualises the rate of change in the number of PBS
+                        (Pharmaceutical Benefits Scheme) scripts of inhalants and adrenergics and the line chart on the
+                        bottom visualises the rate of change in the number of sales for inhalers for shortness of
+                        breath. The yellow shaded region is the time period in which the most devastating fires of the
+                        Black Summer period occurred and the dotted line represents the peak in the number of scripts
+                        ordered and sales. From these charts, it is evident that during the time when the most
+                        devastating
+                        fires of Black Summer were burning, the prescriptions for inhalents and adrenergics steeply
+                        increased.
+                        This was due to the poor air quality caused by the large amounts of ash that was spread into the
+                        atmosphere
+                        by wind which ultimately caused respiratory issues for people not only in bush fire affected
+                        areas but also
+                        people in non bush fire affected areas. The same can be said for the sharp increase in sales for
+                        inhalers as the hazardous air quality worsened symptoms for people with respiratory conditions
+                        such as
+                        asthma.
+                    </div>
+                    <div>
+                        The chart below shows the number of deaths caused by the Black Summer bushfires per state. The
+                        majority of these fatalities occurred in New South Wales which was the state hardest hit by the
+                        fires. Particularly severe fires in areas such as the South Coast and the Blue Mountains
+                        accounted for many of the deaths. One of the deadliest single incidents was the Currowan fire,
+                        which claimed multiple lives and destroyed over 500 homes.
+                        Many of the deaths were directly linked to the intensity of the
+                        fires, which were fueled by extreme weather conditions, including prolonged drought,
+                        record-breaking temperatures, and high winds. These conditions created ideal environments for
+                        firestorms, where the combination of heat and wind accelerates the spread of the flames, often
+                        leaving little time for evacuation.
+                    </div>
+                </div>
+                <div id="deaths" class="universal-margin"></div>
+            </div>
+            <div class="med-line-charts-container">
+                <div id="inhalants_and_adrenergics_chart" class="universal-margin"></div>
+                <div id="inhaler_sales" class="universal-margin"></div>
+            </div>
+
+        </div>
+        <div class="forest-fire-content">
+            <div id="forest_fire"> </div>
+            <div class="forestfire-text-block">
+                <div>The chart to the left displays the percentage of the area bushfires have burned through that is a
+                    forest over the January 2019 to December 2020 period based on figures that have been
+                    normalised to the total area of the state.
+                </div>
+                <div>Forest fires in Australia during the 2019-2020 period heavily affected New South Wales (NSW) and
+                    the Australian Capital Territory (ACT), alongside other states. NSW, in particular, experienced a
+                    series of devastating forest fires throughout the year, not limited to the Black Summer peak. These
+                    fires were driven by record-breaking temperatures, low humidity, and prolonged drought conditions,
+                    which created highly flammable environments in forested regions.
+                    In NSW, significant forest fires began as early as September 2019, with areas such as the Mid North
+                    Coast and Blue Mountains being severely impacted. Fires burned through millions of hectares of
+                    forest, including World Heritage-listed areas, such as the Gondwana Rainforests. These forest
+                    ecosystems, normally resistant to fire, were overwhelmed by the extreme conditions. By the end of
+                    the season, over 5 million hectares had been scorched in NSW alone, making it one of the
+                    worst-affected states.</div>
+                <div>The ACT, though much smaller in land area, was also severely impacted, particularly by fires in
+                    early 2020. The Orroral Valley fire in Namadgi National Park, which started in January 2020, burned
+                    over 80% of the parks forested areas, threatening Canberra's outskirts. The fires in the ACT
+                    emphasized the vulnerability of forests in small, densely populated regions during such intense fire
+                    seasons.</div>
+            </div>
+        </div>
+    </div>
+
 </body>
+
 </html>

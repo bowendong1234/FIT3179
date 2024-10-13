@@ -2,9 +2,12 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "vconcat": [
         {
-            "width": 400,
-            "height": 250,
-            "title": "Average PBS scripts per state for inhalants and adrenergics for obstructive airway diseases",
+            "width": 600,
+            "height": 400,
+            "title": {
+                "text": "Inhalants and Adrenergics PBS Scripts during Black Summer",
+                "fontSize": 18
+                },
             "data": {
                 "url": "inhalants_and_adrenergics.csv",
                 "format": {
@@ -14,14 +17,14 @@
             "transform": [
                 {
                     "fold": [
-                        "VIC",
-                        "NSW",
-                        "QLD",
-                        "ACT",
-                        "NT",
-                        "SA",
-                        "WA",
-                        "TS"
+                        "Victoria",
+                        "New South Wales",
+                        "Queensland",
+                        "Australian Capital Territory",
+                        "Northern Territory",
+                        "South Australia",
+                        "Western Australia",
+                        "Tasmania"
                     ],
                     "as": [
                         "State",
@@ -30,6 +33,18 @@
                 }
             ],
             "layer": [
+                
+                {
+                  "mark": {
+                    "type": "rect",
+                    "color": "#f0e68c",
+                    "opacity": 0.01
+                  },
+                  "encoding": {
+                    "x": {"datum": "1/12/2019"},
+                    "x2": {"datum": "26/1/2020"}
+                  }
+                },
                 {
                     "mark": {
                         "type": "line"
@@ -66,12 +81,16 @@
                                 "9/2/2020",
                                 "16/2/2020",
                                 "23/2/2020"
-                            ]
+                            ],
+                            "axis": {
+                                "labelAngle": -40
+                            }
+                            
                         },
                         "y": {
                             "field": "Value",
                             "type": "quantitative",
-                            "title": "Rate change in no. of scripts ordered (%)",
+                            "title": "Rate change in average no. of scripts ordered (%)",
                             "scale": {
                                 "zero": true
                             }
@@ -90,7 +109,7 @@
                             {
                                 "field": "Value",
                                 "type": "quantitative",
-                                "title": "% change in prescriptions ordered"
+                                "title": "Rate change in no. of scripts ordered (%)"
                             },
                             {
                                 "field": "Week",
@@ -103,12 +122,11 @@
                 {
                   "mark": {
                     "type": "text",
-                    "align": "right",
-                    "dx": 5,
-                    "dy": -5,
-                    "font": "calibri",
-                    "fontWeight": "lighter",
-                    "fontSize": 12
+                    "align": "left",
+                    "font": "Calibri",
+                    "fontWeight": 100,
+                    "fontSize": 12,
+                    "dx": 20
                   },
                   "encoding": {
                     "x": {
@@ -120,7 +138,7 @@
                       "type": "quantitative"
                     },
                     "text": {
-                      "value": "surge in prescriptions\ndue to 2020 black summer"
+                      "value": "Peak in pescriptions ordered"
                     }
                   }
                 },
@@ -146,6 +164,9 @@
     "config": {
         "view": {
             "stroke": null
+        },
+        "legend": {
+            "orient": "top-left"
         }
     }
 }

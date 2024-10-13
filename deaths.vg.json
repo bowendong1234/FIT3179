@@ -1,0 +1,56 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "vconcat": [
+        {
+            "width": 300,
+            "height": 250,
+            "title": "2019-2020 Black Summer related Deaths by State",
+            "data": {
+                "url": "deaths.csv",
+                "format": {
+                    "type": "csv"
+                }
+            },
+            "layer": [
+                {
+                    "mark": {
+                        "type": "bar",
+                        "color": "lightslategray"
+                    },
+                    "encoding": {
+                        "y": {
+                            "field": "State",
+                            "type": "nominal",
+                            "title": "State",
+                            "axis": {
+                                "labelAngle": 0
+                            }
+                        },
+                        "x": {
+                            "field": "No_of_deaths",
+                            "type": "quantitative",
+                            "title": "No. of Deaths"
+                        },
+                        "tooltip": [
+                            {
+                                "field": "State",
+                                "type": "nominal",
+                                "title": "State"
+                            },
+                            {
+                                "field": "No_of_deaths",
+                                "type": "quantitative",
+                                "title": "No. of Deaths"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "config": {
+        "view": {
+            "stroke": null
+        }
+    }
+}
