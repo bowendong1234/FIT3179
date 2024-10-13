@@ -4,7 +4,10 @@
         {
             "width": 300,
             "height": 250,
-            "title": "2019-2020 Black Summer related Deaths by State",
+            "title": {
+                "text": "Black Summer Deaths by State",
+                "fontSize": 18
+                },
             "data": {
                 "url": "deaths.csv",
                 "format": {
